@@ -5,8 +5,15 @@ path = "Python/Pandas/resources/excel/"
 
 df = pd.read_excel(path + "all_shifts.xlsx")
 
-# filter 1: loc
-df = df.loc[(df["Region"] == "North") & (df["Product"] == "Stapler")]
+# filter 1: loc with single item
+# df = df.loc[(df["Region"] == "North") & (df["Product"] == "Stapler")]
+
+# ---> with multiple items
+myItems = ["Paper", "Pen"] # Define the list of items you want to filter by
+
+df = df.loc[df["Product"].isin(myItems)]    # my items is in "Product"
+
+# df = df.loc[~df["Product"].isin(myItems)] # my items is not in "Product"
 
 # filter 2: lambda
 df["Tax %"] = df["Units Sold"].apply(lambda x: .15 if 10 < x < 99 else .20 if 100 < x < 200 else .25)
