@@ -11,3 +11,7 @@
 
 pip install pandas
 pip install openpyxl
+
+
+### files for free download ###
+https://www.stats.govt.nz/large-datasets/csv-files-for-download/
